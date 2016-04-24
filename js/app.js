@@ -27,19 +27,20 @@ var mothmanProphecies = {"t":"mothman prophecies"};
 var exorcismEmilyRose = {"t":"the exorcism of emily rose"};
 var oculus = {"t":"oculus"};
 
+//Display Posters and Info Overlay
 var buildPoster = function(data) {
   var posterHTML = "<div class='item' id='" + data.imdbID;
   posterHTML += "'><img src='" + data.Poster;
   posterHTML += "' alt='" + data.Title;
   posterHTML += "'>";
   $("#gallery").append(posterHTML);
-}
+};
 
 var createOverlay = function(data) {
   $("#movieInfo").replaceWith("");
   $poster.attr({src: data.Poster,
                 alt: data.Title});
-  var infoHTML = "<ul id='movieInfo'>"
+  var infoHTML = "<ul id='movieInfo'>";
   infoHTML += "<li>Title: " + data.Title;
   infoHTML += "</li><li>Released: " + data.Year;
   infoHTML += "</li><li>Director: " + data.Director;
@@ -49,25 +50,25 @@ var createOverlay = function(data) {
   infoHTML += "</li></ul>";
   $info.append(infoHTML);
   $overlay.show();
-}
+};
 
+//Cycling Posters
 var next = function() {
   currentMovie += 1;
   newData = movieArray[currentMovie];
   createOverlay(newData);
-}
+};
 
 var prev = function() {
   currentMovie -= 1;
   newData = movieArray[currentMovie];
   createOverlay(newData);
-}
+};
 
 $("#next").click(function() {
   if (currentMovie<(movieArray.length-1)) {
     next();
   }
-
 });
 
 $("#prev").click(function() {
@@ -76,9 +77,48 @@ $("#prev").click(function() {
   }
 });
 
+//Sorting Movie
+var replacePoster = function(){
+  $(".item").replaceWith("");
+  $.each(movieArray, function(key,value){
+    buildPoster(value);
+    $("#"+value.imdbID+"").click(function(){
+      createOverlay(value);
+      currentMovie = $(".item").index(this);
+    });
+  });
+};
+
+$("#alphaBet").click(function(){
+  movieArray.sort(function(a,b){
+    if (a.Title > b.Title) {
+      return 1;
+    }
+    if (a.Title < b.Title) {
+      return -1;
+    }
+    return 0;
+  });
+  replacePoster();
+});
+
+$("#runTime").click(function() {
+  movieArray.sort(function(a,b){
+    if (a.Runtime > b.Runtime) {
+      return 1;
+    }
+    if (a.Runtime < b.Runtime) {
+      return -1;
+    }
+    return 0;
+  });
+  replacePoster();
+});
+
 //Get Data
 var movieArray = [];
 var currentMovie;
+var newData;
 
 $.getJSON(openMovieAPI,theConjuring,function(data){
   movieArray.push(data);
