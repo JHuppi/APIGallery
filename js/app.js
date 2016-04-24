@@ -3,7 +3,7 @@ var $overlay = $('<div id="overlay"></div>');
 var $escape = $('<div id="escape">X</div>');
 var $flex = $('<div id="flex"></div>');
 var $prev = $('<div id="prev">&lsaquo;</div>');
-var $poster = $('<img>');
+var $poster = $('<div id="poster"></div>');
 var $info = $('<div id="info"></div>');
 var $next = $('<div id="next">&rsaquo;</div>');
 
@@ -30,16 +30,15 @@ var oculus = {"t":"oculus"};
 //Display Posters and Info Overlay
 var buildPoster = function(data) {
   var posterHTML = "<div class='item' id='" + data.imdbID;
-  posterHTML += "'><img src='" + data.Poster;
-  posterHTML += "' alt='" + data.Title;
-  posterHTML += "'>";
+  posterHTML += "'><h2>" + data.Title;
+  posterHTML += "</h2>"
   $("#gallery").append(posterHTML);
 };
 
 var createOverlay = function(data) {
   $("#movieInfo").replaceWith("");
-  $poster.attr({src: data.Poster,
-                alt: data.Title});
+  var movieTitle = "<h2>" + data.Title;
+  movieTitle += "<h2>";
   var infoHTML = "<ul id='movieInfo'>";
   infoHTML += "<li>Title: " + data.Title;
   infoHTML += "</li><li>Released: " + data.Year;

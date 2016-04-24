@@ -3,7 +3,7 @@
 }
 
 body {
-    padding-top: 110px;
+    padding-top: 135px;
 }
 
 ul {
@@ -21,15 +21,18 @@ li {
 
 #banner {
     width: 100%;
-    height: 80px;
-    background-color: white;
+    background-color: slategray;
     text-align: center;
     position: fixed;
     top: 0px;
 }
 
+#banner h1 {
+    font-family: 'Abel', sans-serif;
+}
+
 #sortNav {
-    background-color: white;
+    background-color: slategray;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -46,6 +49,7 @@ li {
     padding: 7.5px;
     align-items: center;
     font-weight: 600;
+    border: 2px solid black;
 }
 
 #gallery {
@@ -56,22 +60,20 @@ li {
 }
 
 .item {
+    font-family: 'Abel', sans-serif;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 30%;
-    margin: 1.66%;
-    background-color: steelblue;  
+    margin: 20px;
+    background-color: steelblue;
+    border: 2px solid black;  
 }
 
-.item img {
-    width: 100%;
-    height: 100%;
-    padding: 12px;
-}
 
 #overlay {
-  background: rgba(0,0,0,.75);
+  background: rgba(0,0,0,.8);
   width: 100%;
   height: 100%;
   position: fixed;
@@ -108,6 +110,7 @@ li {
 
 #alphaBet:hover,
 #runTime:hover,
+.item:hover,
 #prev:hover,
 #next:hover,
 #escape:hover {
