@@ -31,7 +31,7 @@ var oculus = {"t":"oculus"};
 var buildPoster = function(data) {
   var posterHTML = "<div class='item' id='" + data.imdbID;
   posterHTML += "'><h2>" + data.Title;
-  posterHTML += "</h2>"
+  posterHTML += "</h2>";
   $("#gallery").append(posterHTML);
 };
 
