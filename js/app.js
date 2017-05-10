@@ -31,7 +31,7 @@ var oculus = {"t":"oculus"};
 var buildPoster = function(data) {
   var posterHTML = "<div class='item' id='" + data.imdbID;
   posterHTML += "'><h2>" + data.Title;
-  posterHTML += "</h2>"
+  posterHTML += "</h2>";
   $("#gallery").append(posterHTML);
 };
 
@@ -40,12 +40,12 @@ var createOverlay = function(data) {
   var movieTitle = "<h2>" + data.Title;
   movieTitle += "<h2>";
   var infoHTML = "<ul id='movieInfo'>";
-  infoHTML += "<li>Title: " + data.Title;
-  infoHTML += "</li><li>Released: " + data.Year;
-  infoHTML += "</li><li>Director: " + data.Director;
-  infoHTML += "</li><li>Actors: " + data.Actors;
-  infoHTML += "</li><li>Rating: " + data.Rated;
-  infoHTML += "</li><li>Runtime: " + data.Runtime;
+  infoHTML += "<li>TITLE: " + data.Title;
+  infoHTML += "</li><li>RELEASED: " + data.Year;
+  infoHTML += "</li><li>DIRECTOR: " + data.Director;
+  infoHTML += "</li><li>ACTORS: " + data.Actors;
+  infoHTML += "</li><li>RATING: " + data.Rated;
+  infoHTML += "</li><li>RUNTIME: " + data.Runtime;
   infoHTML += "</li></ul>";
   $info.append(infoHTML);
   $overlay.show();

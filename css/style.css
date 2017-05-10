@@ -2,16 +2,23 @@
     box-sizing: border-box;
 }
 
-body {
-    padding-top: 135px;
-}
-
 ul {
     list-style: none;
+    padding: 0;
 }
 
 li {
     margin: 5px 0;
+}
+
+h1 {
+  margin-top: 0;
+  padding-top: 0.5em;
+}
+
+h2 {
+  margin: inherit auto;
+  text-align: center;
 }
 
 #wrapper {
@@ -22,9 +29,8 @@ li {
 #banner {
     width: 100%;
     background-color: slategray;
+    padding-bottom: 0.25em;
     text-align: center;
-    position: fixed;
-    top: 0px;
 }
 
 #banner h1 {
@@ -42,20 +48,23 @@ li {
 #alphaBet,
 #runTime {
     margin: 0 5px;
-    width: 15%;
+    width: 30%;
     color: white;
-    background-color: steelblue;
+    background-color: #e74c3c;
     border-radius: 5px;
     padding: 7.5px;
-    align-items: center;
+    text-align: center;
     font-weight: 600;
     border: 2px solid black;
+    letter-spacing: 1.33px;
 }
 
 #gallery {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -65,10 +74,11 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
-    margin: 20px;
+    width: 90%;
+    margin: 20px auto;
     background-color: steelblue;
-    border: 2px solid black;  
+    border: 2px solid black;
+    padding: 8px;
 }
 
 
@@ -94,6 +104,7 @@ li {
 
 #flex {
     margin: 7.5% 0;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,7 +113,7 @@ li {
 #prev,
 #next {
     margin: auto;
-    padding: 100px;
+    padding: 25px;
     color: white;
     font-size: 3em;
     font-weight: 700;
@@ -119,4 +130,30 @@ li {
 
 #info {
     color: white;
+}
+
+@media (min-width: 600px) {
+  #alphaBet,
+  #runTime {
+    width: 25%;
+  }
+
+  #gallery {
+    flex-direction: row;
+  }
+
+  .item {
+    width: 45%;
+  }
+}
+
+@media (min-width: 900px) {
+  #alphaBet,
+  #runTime {
+    width: 20%;
+  }
+
+  .item {
+    width: 30%;
+  }
 }
